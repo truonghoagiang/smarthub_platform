@@ -1,0 +1,61 @@
+
+spring:
+  datasource:
+    smarthub:
+      url: jdbc:postgresql://localhost:5432/smarthome?smarthub
+      driver-class-name: org.postgresql.Driver
+      username: hhtruon
+      password: admin@123
+
+  jpa:
+    show-sql: true
+    hibernate:
+      ddl-auto: none
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+        format_sql: true
+
+  data:
+    redis:
+      host: localhost
+      port: 6379
+      password:
+      timeout: 2000ms
+      lettuce:
+        pool:
+          max-active: 8
+          max-idle: 8
+          min-idle: 0
+
+  servlet:
+    multipart:
+      max-file-size: 10MB
+      max-request-size: 10MB
+
+server:
+  port: 8080
+  error:
+    include-message: always
+    include-binding-errors: always
+
+jwt:
+  secret:
+  access-token-expiration: 3600000 #1 hour in miliseconds
+  refresh-token-expiration: 2592000000 #30 days in milisecones
+
+apps:
+  cors:
+    allowed-origins: http://localhost:3000,http://localhost:8080
+
+logging:
+  level:
+    root: info
+    com.smarthub: debug
+    org.springframework.web: debug
+    org.hibernate.sql: debug
+  pattern:
+    console: "%d{yyyy-MM-dd HH:mm:ss} - %msg%n"
+    file: "%d{yyyy-MM-dd HH:mm:ss} [%thread] %-5level %logger{36} - %msg%n"
+  file:
+    name: logs/smarthub.log
