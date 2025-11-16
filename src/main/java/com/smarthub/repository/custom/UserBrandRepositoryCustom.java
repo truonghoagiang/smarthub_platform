@@ -11,11 +11,11 @@ import java.util.Optional;
 public interface UserBrandRepositoryCustom {
     List<UserBrandEntity> findByUserId(String userId);
 
-    List<UserBrandEntity> findByUserAndActive(String userId, Boolean active);
+    List<UserBrandEntity> findByUserAndActive(String userId);
 
     Optional<UserBrandEntity> findByUserAndBrandId(String userId, Long brandId);
 
-    List<UserBrandEntity> findByExpiredDateBeforeAndActive(Date expiredDate, Boolean active);
+    List<UserBrandEntity> findByExpiredDateBeforeAndActive(Date expiredDate);
 
     List<UserBrandEntity> findBySyncedEnable();
 

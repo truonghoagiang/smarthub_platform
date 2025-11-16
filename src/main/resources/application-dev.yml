@@ -2,7 +2,7 @@
 spring:
   datasource:
     smarthub:
-      url: jdbc:postgresql://localhost:5432/smarthome?smarthub
+      url: jdbc:postgresql://localhost:5432/smarthome?currentSchema=smarthub
       driver-class-name: org.postgresql.Driver
       username: hhtruon
       password: admin@123

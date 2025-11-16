@@ -4,17 +4,6 @@ import jakarta.persistence.*;
 
 import java.time.LocalDateTime;
 
-@NamedStoredProcedureQueries({
-        @NamedStoredProcedureQuery(
-                name = "UserBrandEntity.findByUserId",
-                procedureName = "f_get_brand_connect_by_user",
-                resultClasses = UserBrandEntity.class,
-                parameters = {
-                        @StoredProcedureParameter(mode = ParameterMode.IN, name = "i_user_id", type = Long.class)
-                }
-        )
-})
-
 @Entity
 @Table(name = "t_user_device")
 public class UserBrandEntity {

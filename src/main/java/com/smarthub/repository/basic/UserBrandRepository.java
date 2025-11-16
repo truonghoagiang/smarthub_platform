@@ -6,5 +6,5 @@ import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public interface UserBrandRepository extends CrudRepository<UserBrandEntity, Long>, UserBrandRepositoryCustom {
+public interface UserBrandRepository extends CrudRepository<UserBrandEntity, Integer>, UserBrandRepositoryCustom {
 }

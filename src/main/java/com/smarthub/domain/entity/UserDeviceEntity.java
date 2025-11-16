@@ -1,9 +1,6 @@
 package com.smarthub.domain.entity;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 
 import java.time.LocalDateTime;
 import java.util.Map;
@@ -13,12 +10,12 @@ import java.util.Map;
 public class UserDeviceEntity {
 
     private Long Id;
-    private Long brandId;
+    private String brandName;
     private String name;
     private String deviceType;
     private String room;
-    private String isOnline;
-    private String isActive;
+    private Boolean isOnline;
+    private Boolean isActive;
     private Map<String, Object> capabilities;
     private Map<String, Object> currentState;
     private Map<String, Object> properties;
@@ -36,13 +33,13 @@ public class UserDeviceEntity {
         Id = id;
     }
 
-    @Column(name = "brand_id")
-    public Long getBrandId() {
-        return brandId;
+    @Column(name = "brand_name")
+    public String getBrandName() {
+        return brandName;
     }
 
-    public void setBrandId(Long brandId) {
-        this.brandId = brandId;
+    public void setBrandName(String brandName) {
+        this.brandName = brandName;
     }
 
     @Column(name = "name")
@@ -73,21 +70,21 @@ public class UserDeviceEntity {
     }
 
     @Column(name = "is_online")
-    public String getIsOnline() {
+    public Boolean getOnline() {
         return isOnline;
     }
 
-    public void setIsOnline(String isOnline) {
-        this.isOnline = isOnline;
+    public void setOnline(Boolean online) {
+        isOnline = online;
     }
 
-    @Column(name = "is_active")
-    public String getIsActive() {
+    @Column(name = "is_actived")
+    public Boolean getActive() {
         return isActive;
     }
 
-    public void setIsActive(String isActive) {
-        this.isActive = isActive;
+    public void setActive(Boolean active) {
+        isActive = active;
     }
 
     @Column(name = "capabilities")
@@ -152,9 +149,9 @@ public class UserDeviceEntity {
     public UserDeviceEntity() {
     }
 
-    public UserDeviceEntity(Long id, Long brandId, String name, String deviceType, String room, String isOnline, String isActive, Map<String, Object> capabilities, Map<String, Object> currentState, Map<String, Object> properties, String model, String firmwareVersion, LocalDateTime lastActived) {
+    public UserDeviceEntity(Long id, String brandName, String name, String deviceType, String room, Boolean isOnline, Boolean isActive, Map<String, Object> capabilities, Map<String, Object> currentState, Map<String, Object> properties, String model, String firmwareVersion, LocalDateTime lastActived) {
         Id = id;
-        this.brandId = brandId;
+        this.brandName = brandName;
         this.name = name;
         this.deviceType = deviceType;
         this.room = room;
