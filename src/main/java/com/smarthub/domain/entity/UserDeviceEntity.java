@@ -1,6 +1,8 @@
 package com.smarthub.domain.entity;
 
+import com.vladmihalcea.hibernate.type.json.JsonType;
 import jakarta.persistence.*;
+import org.hibernate.annotations.Type;
 
 import java.time.LocalDateTime;
 import java.util.Map;
@@ -87,7 +89,8 @@ public class UserDeviceEntity {
         isActive = active;
     }
 
-    @Column(name = "capabilities")
+    @Type(JsonType.class)
+    @Column(name = "capabilities", columnDefinition = "jsonb")
     public Map<String, Object> getCapabilities() {
         return capabilities;
     }
@@ -96,7 +99,8 @@ public class UserDeviceEntity {
         this.capabilities = capabilities;
     }
 
-    @Column(name = "current_state")
+    @Type(JsonType.class)
+    @Column(name = "current_state", columnDefinition = "jsonb")
     public Map<String, Object> getCurrentState() {
         return currentState;
     }
@@ -105,7 +109,8 @@ public class UserDeviceEntity {
         this.currentState = currentState;
     }
 
-    @Column(name = "properties")
+    @Type(JsonType.class)
+    @Column(name = "properties", columnDefinition = "jsonb")
     public Map<String, Object> getProperties() {
         return properties;
     }

@@ -160,6 +160,7 @@ public class UserBrandEntity {
         this.lastSyncedTime = lastSyncedTime;
     }
 
+    @Transient
     public boolean isTokenExpired(){
         return getExpiresTime() != null && LocalDateTime.now().isAfter(getExpiresTime());
     }

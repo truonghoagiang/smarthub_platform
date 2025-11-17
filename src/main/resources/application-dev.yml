@@ -6,6 +6,8 @@ spring:
       driver-class-name: org.postgresql.Driver
       username: hhtruon
       password: admin@123
+  application:
+    name: smarthub-platform
 
   jpa:
     show-sql: true
@@ -40,7 +42,7 @@ server:
     include-binding-errors: always
 
 jwt:
-  secret-key: "token_smarthub_hhtruon@smarthome"
+  secret-key: "EGvNq5A5ailJRYCFOTms9Vp7OOIiR1WCKUKXZ9PKou0"
   access-token-expiration: 3600000 #1 hour in miliseconds
   refresh-token-expiration: 2592000000 #30 days in milisecones
 
@@ -55,7 +57,8 @@ logging:
     org.springframework.web: debug
     org.hibernate.sql: debug
   pattern:
-    console: "%d{yyyy-MM-dd HH:mm:ss} - %msg%n"
+    console: "%d{yyyy-MM-dd HH:mm:ss} %highlight(%-5level) %logger{0} - %msg%n"
     file: "%d{yyyy-MM-dd HH:mm:ss} [%thread] %-5level %logger{36} - %msg%n"
+    #file: "%d [%thread] %-5level %logger{0} -%msg%n"
   file:
-    name: logs/smarthub.log
+    name: logs/smarthub_platform.log

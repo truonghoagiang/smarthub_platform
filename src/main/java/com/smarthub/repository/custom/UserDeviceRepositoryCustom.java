@@ -21,4 +21,6 @@ public interface UserDeviceRepositoryCustom {
 
     Boolean isExistsByBrandAndDeviceId(Long brandId, Long deviceId);
 
+    List<UserDeviceEntity> findByBrandId(String brandId);
+
 }

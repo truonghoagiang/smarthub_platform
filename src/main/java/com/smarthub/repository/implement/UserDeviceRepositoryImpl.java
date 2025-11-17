@@ -86,4 +86,14 @@ public class UserDeviceRepositoryImpl implements UserDeviceRepositoryCustom {
         return query.getSingleResult() != null;
 
     }
+
+    @Override
+    public List<UserDeviceEntity> findByBrandId(String brandId) {
+        Query query;
+        query = entityManager.createNativeQuery(
+                "select * from \"smarthub\".f_get_devices_by_brand(?)",
+                UserDeviceEntity.class);
+        query.setParameter(1, brandId);
+        return query.getResultList();
+    }
 }
